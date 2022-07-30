@@ -1,0 +1,1 @@
+from .productTag import ProductTag

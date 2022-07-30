@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  dev-db:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: team_psql_user
+      POSTGRES_PASSWORD: mohsen1160417237
+      POSTGRES_DB: team_psql
+    volumes:
+      - dev_database:/var/lib/postgresql/data/
+    ports:
+      - 5434:5432
+
+volumes:
+  dev_database:
+
