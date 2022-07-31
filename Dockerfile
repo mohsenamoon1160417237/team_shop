@@ -10,12 +10,12 @@ RUN mkdir $APIDIR/media
 WORKDIR $APIDIR
 COPY . $APIDIR/
 
-RUN addgroup --group teamShop_group
+RUN addgroup --group team_shop_group
 
-RUN useradd -ms /bin/bash teamShop_user
-RUN adduser teamShop_user teamShop_group
+RUN useradd -ms /bin/bash team_shop_user
+RUN adduser team_shop_user team_shop_group
 
-RUN chown -R teamShop_user:teamShop_group $APIDIR
+RUN chown -R team_shop_user:team_shop_group $APIDIR
 
 ADD sh_deploy/django.sh /django.sh
 RUN chmod +x /django.sh
@@ -23,4 +23,4 @@ RUN chmod +x /django.sh
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-USER teamShop_user
+USER team_shop_user
