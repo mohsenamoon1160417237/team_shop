@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: team_psql_user
+      POSTGRES_PASSWORD: mohsen1160417237
+      POSTGRES_DB: team_psql
+    volumes:
+      - team_psql:/var/lib/postgresql/data/
+    ports:
+      - 5434:5432
+    container_name: teamShop_postgres
+    restart: always
+
+  django:
+
+    build: .
+    entrypoint: /django.sh
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_DB: team_psql
+      POSTGRES_USER: team_psql_user
+      POSTGRES_PASSWORD: mohsen1160417237
+    ports:
+      - 8282:8282
+    volumes:
+      - .:/team_shop
+    container_name: teamShop_api
+    restart: always
+
+  nginx:
+
+    depends_on:
+      - django
+    build: nginx
+    volumes:
+      - .:/team_shop
+      - nginx_log_volume:/var/log/nginx
+      - nginx_conf:/etc/nginx/conf.d/
+
+    ports:
+      - 80:80
+      - 443:443
+    container_name: teamShop_nginx
+    restart: always
+
+volumes:
+  team_psql:
+  nginx_log_volume:
+  nginx_conf:
