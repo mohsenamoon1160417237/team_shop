@@ -2,7 +2,7 @@ version: "3"
 
 services:
   dev-db:
-    image: postgres
+    image: postgres:13.3
     environment:
       POSTGRES_USER: team_psql_user
       POSTGRES_PASSWORD: mohsen1160417237
