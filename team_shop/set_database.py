@@ -8,10 +8,10 @@ def set_db(is_production: bool):
     if is_production is True:
         return {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'sportshop_postgres',
-            'USER': 'postgres',
+            'NAME': 'team_psql',
+            'USER': 'team_psql_user',
             'PASSWORD': 'mohsen1160417237',
-            'HOST': '86.104.32.99',
+            'HOST': 'postgres',
             'port': 5432
         }
 
