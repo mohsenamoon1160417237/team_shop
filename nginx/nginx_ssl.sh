@@ -3,4 +3,4 @@
 apt update && apt-get install letsencrypt
 apt-get install python3-certbot-nginx
 
-certbot --nginx -d quicksmart.pro
+certbot --nginx -d shop.quicksmart.pro
