@@ -14,6 +14,8 @@ from .set_database import set_db
 
 from pathlib import Path
 
+from decouple import config
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,7 +45,8 @@ INSTALLED_APPS = [
     'gallery_image',
     'brand',
     'product_category',
-    'product_tag'
+    'product_tag',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'team_shop.urls'
@@ -124,3 +129,11 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
+
+CORS_ALLOW_METHODS = config('CORS_ALLOW_METHODS', cast=lambda v: [s.strip() for s in v.split(",")])
+
+CORS_ALLOW_HEADERS = config('CORS_ALLOW_HEADERS', cast=lambda v: [s.strip() for s in v.split(",")])
+
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
