@@ -33,7 +33,7 @@ services:
     restart: always
 
   nginx:
-
+    # after the service is up run /nginx_ssl.sh inside the container
     depends_on:
       - django
     build: nginx
