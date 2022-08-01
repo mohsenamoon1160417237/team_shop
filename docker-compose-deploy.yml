@@ -5,9 +5,9 @@ services:
   postgres:
     image: postgres
     environment:
-      POSTGRES_USER: team_psql_user
-      POSTGRES_PASSWORD: mohsen1160417237
-      POSTGRES_DB: team_psql
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - team_psql:/var/lib/postgresql/data/
     ports:
@@ -22,9 +22,9 @@ services:
     depends_on:
       - postgres
     environment:
-      POSTGRES_DB: team_psql
-      POSTGRES_USER: team_psql_user
-      POSTGRES_PASSWORD: mohsen1160417237
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - 8282:8282
     volumes:
