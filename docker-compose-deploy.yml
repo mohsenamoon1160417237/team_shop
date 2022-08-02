@@ -29,7 +29,6 @@ services:
       - 8282:8282
     volumes:
       - .:/team_shop
-      - ./team_shop/static
     container_name: teamShop_api
     restart: always
 
@@ -40,7 +39,6 @@ services:
     build: nginx
     volumes:
       - .:/team_shop
-      - ./team_shop/static
       - nginx_log_volume:/var/log/nginx
       - nginx_conf:/etc/nginx/conf.d/
 
