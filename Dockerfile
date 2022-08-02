@@ -3,8 +3,8 @@ FROM python:3.8
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /teamShop
-ENV APIDIR=/teamShop
+RUN mkdir /team_shop
+ENV APIDIR=/team_shop
 RUN mkdir $APIDIR/media
 
 WORKDIR $APIDIR

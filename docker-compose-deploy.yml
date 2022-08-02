@@ -28,7 +28,7 @@ services:
     ports:
       - 8282:8282
     volumes:
-      - teamShop_volume:/teamShop
+      - teamShop_volume:/team_shop
     container_name: teamShop_api
     restart: always
 
@@ -38,7 +38,7 @@ services:
       - django
     build: nginx
     volumes:
-      - teamShop_volume:/teamShop
+      - teamShop_volume:/team_shop
       - nginx_log_volume:/var/log/nginx
       - nginx_conf:/etc/nginx/conf.d/
 
