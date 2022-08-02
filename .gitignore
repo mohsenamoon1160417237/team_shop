@@ -3,3 +3,5 @@
 /venv
 *.pyc
 /media
+*/migrations/*
+!/*/migrations/__init__.py

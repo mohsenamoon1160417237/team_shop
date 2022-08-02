@@ -15,6 +15,7 @@ from .set_database import set_db
 from pathlib import Path
 
 from decouple import config
+from datetime import timedelta
 
 import os
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'brand',
     'product_category',
     'product_tag',
+    'user_account',
     'corsheaders'
 ]
 
@@ -138,3 +140,14 @@ CORS_ALLOW_METHODS = config('CORS_ALLOW_METHODS', cast=lambda v: [s.strip() for 
 CORS_ALLOW_HEADERS = config('CORS_ALLOW_HEADERS', cast=lambda v: [s.strip() for s in v.split(",")])
 
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
+
+AUTH_USER_MODEL = 'user_account.BaseUser'
+
+SIMPLE_JWT = {
+
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=365),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',)
+}

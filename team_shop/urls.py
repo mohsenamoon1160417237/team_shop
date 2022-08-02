@@ -24,7 +24,8 @@ api_urlpatterns = [
     path('', include("product_category.api.urls", namespace="product_category")),
     path('', include("product.api.urls", namespace="product")),
     path('', include("brand.api.urls", namespace="brand")),
-    path('', include('product_tag.api.urls', namespace='product_tag')),
+    path('', include("product_tag.api.urls", namespace="product_tag")),
+    path('', include("user_account.api.urls", namespace="user_account"))
 ]
 
 urlpatterns = [
