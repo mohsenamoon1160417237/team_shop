@@ -22,4 +22,8 @@ RUN chmod +x /django.sh
 
 RUN pip install --upgrade pip
 
+RUN pip install -r requirements.txt
+
+RUN python manage.py collectstatic
+
 USER team_shop_user
