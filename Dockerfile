@@ -8,7 +8,7 @@ ENV APIDIR=/team_shop
 RUN mkdir $APIDIR/media
 
 WORKDIR $APIDIR
-#COPY . $APIDIR/
+COPY . $APIDIR/
 
 RUN addgroup --group team_shop_group
 
