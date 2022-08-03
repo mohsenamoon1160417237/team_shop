@@ -10,9 +10,9 @@ RUN mkdir $APIDIR/media
 WORKDIR $APIDIR
 
 RUN groupadd -g 998 docker
-RUN useradd team_shop_user -u 1000 -g 1001 -m -s /bin/bash
+RUN useradd team_shop_user -u 1000 -g 998 -m -s /bin/bash
 
-RUN chown -R 1000:1001 $APIDIR
+RUN chown -R 1000:998 $APIDIR
 
 ADD sh_deploy/django.sh /django.sh
 RUN chmod +x /django.sh
