@@ -56,26 +56,26 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/root/team_shop/volumes'
+      device: '/root/volumes/team_shop'
 
   django_volume:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/root/team_shop/volumes'
+      device: '/root/volumes/team_shop'
 
   nginx_log_volume:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/root/team_shop/volumes'
+      device: '/root/volumes/team_shop'
 
   nginx_conf_volume:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/root/team_shop/volumes'
+      device: '/root/volumes/team_shop'
 
