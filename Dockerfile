@@ -8,11 +8,14 @@ ENV APIDIR=/team_shop
 RUN mkdir $APIDIR/media
 
 WORKDIR $APIDIR
-#COPY . $APIDIR/
 
-RUN chown -R team_shop_user:team_shop_group $APIDIR
+RUN useradd team_shop_user -u 1000 -g 1001 -m -s /bin/bash
+
+RUN chown -R 1000:1001 $APIDIR
 
 ADD sh_deploy/django.sh /django.sh
 RUN chmod +x /django.sh
 
 RUN pip install --upgrade pip
+
+USER team_shop_user
