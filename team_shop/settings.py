@@ -31,7 +31,9 @@ SECRET_KEY = 'g#n!uh9(75g)(7kh^i-&7a!)!sv*q^54ff#n6o7pma+#n*_ry5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
+lstCors = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
+
+ALLOWED_HOSTS = lstCors
 
 # Application definition
 
@@ -136,7 +138,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
+CORS_ALLOWED_ORIGINS = lstCors
+
+CORS_ALLOWED_ORIGINS_REGEXES = [rf"{config('CORS_ALLOWED_ORIGINS_REG')}"]
 
 CORS_ALLOW_METHODS = config('CORS_ALLOW_METHODS', cast=lambda v: [s.strip() for s in v.split(",")])
 
