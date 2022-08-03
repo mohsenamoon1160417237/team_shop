@@ -29,6 +29,6 @@ api_urlpatterns = [
 ]
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('api/', include(api_urlpatterns)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
