@@ -32,16 +32,15 @@ class ProdCategorySerializer(ProdCategoryShortSerializer):
                   'updated_at']
 
     def get_icon(self, obj):
-        icons = ImageItem.objects.filter(category=obj, is_icon=True)
+        icons = ImageItem.objects.filter(category=obj, img_type=ImageItem.ICON)
         if not icons.exists():
             return None
 
         icon = icons.first()
-        sz = ImageItemSerializer(icon)
-        return sz.data
+        return icon.image.url
 
     def get_image(self, obj):
-        imgs = ImageItem.objects.filter(category=obj, is_icon=False)
+        imgs = ImageItem.objects.filter(category=obj, img_type=ImageItem.CUSTOM)
         if not imgs.exists():
             return None
 

@@ -4,6 +4,14 @@ from utils import GeneralModel
 
 
 class ImageItem(GeneralModel):
+    CUSTOM = 'تصویر معمولی'
+    ICON = 'آیکون'
+    BACKGROUND = 'تصویر پس زمینه'
+    IMAGE_TYPES = [
+        (CUSTOM, CUSTOM),
+        (ICON, ICON),
+        (BACKGROUND, BACKGROUND)
+    ]
     product = models.ForeignKey(
         to='product.DefineProduct',
         on_delete=models.CASCADE,
@@ -33,9 +41,11 @@ class ImageItem(GeneralModel):
         null=True,
         blank=True
     )
-    is_icon = models.BooleanField(
-        default=False
+    img_type = models.CharField(
+        max_length=255,
+        choices=IMAGE_TYPES
     )
 
     def __str__(self):
-        return f"{self.product if self.product is not None else self.category if self.category is not None else self.brand}"
+        return f"{self.product if self.product is not None else self.category if self.category is not None else self.brand} " \
+               f"- {self.img_type}"
