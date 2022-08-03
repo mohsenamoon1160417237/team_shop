@@ -9,7 +9,7 @@ RUN mkdir $APIDIR/media
 
 WORKDIR $APIDIR
 
-RUN groupadd -g 1001 team_shop_user
+RUN groupadd -g 998 docker
 RUN useradd team_shop_user -u 1000 -g 1001 -m -s /bin/bash
 
 RUN chown -R 1000:1001 $APIDIR
