@@ -1,8 +1,8 @@
 #!/bin/bash -x
 
-RUN pip install -r requirements.txt
+pip install -r requirements.txt
 
-RUN python manage.py collectstatic
+python manage.py collectstatic
 
 python manage.py makemigrations &&
   python manage.py migrate &&
