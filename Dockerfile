@@ -8,7 +8,7 @@ ENV APIDIR=/team_shop
 RUN mkdir $APIDIR/media
 
 WORKDIR $APIDIR
-COPY . $APIDIR/
+#COPY . $APIDIR/
 
 RUN addgroup --group team_shop_group
 
@@ -21,8 +21,5 @@ ADD sh_deploy/django.sh /django.sh
 RUN chmod +x /django.sh
 
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-RUN python manage.py collectstatic
 
 USER team_shop_user

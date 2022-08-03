@@ -52,6 +52,5 @@ services:
 volumes:
 
   postgres_volume:
-  django_volume:
   nginx_log_volume:
   nginx_conf_volume:
