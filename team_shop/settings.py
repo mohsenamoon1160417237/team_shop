@@ -31,7 +31,7 @@ SECRET_KEY = 'g#n!uh9(75g)(7kh^i-&7a!)!sv*q^54ff#n6o7pma+#n*_ry5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
 
 # Application definition
 
@@ -42,25 +42,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'product',
     'gallery_image',
     'brand',
     'product_category',
     'product_tag',
-    'user_account',
-    'corsheaders'
+    'user_account'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'django.middleware.locale.LocaleMiddleware'
 ]
 
 ROOT_URLCONF = 'team_shop.urls'

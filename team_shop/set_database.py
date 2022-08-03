@@ -22,5 +22,5 @@ def set_db(is_production: bool):
         'USER': config('POSTGRES_USER'),
         'PASSWORD': config('POSTGRES_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': 5434
+        'PORT': 5432
     }
