@@ -11,6 +11,7 @@ RUN groupadd -g 998 docker
 RUN useradd team_shop_user -u 1000 -g 998 -m -s /bin/bash
 
 RUN chown -R 1000:998 $APIDIR
+RUN pip install virtualenv
 
 USER team_shop_user
 
