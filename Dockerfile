@@ -15,11 +15,6 @@ RUN useradd team_shop_user -u 1000 -g 998 -m -s /bin/bash
 
 RUN chown -R 1000:998 $APIDIR
 
-ADD sh_deploy/django.sh /django.sh
-RUN chmod +x /django.sh
-
 RUN pip install --upgrade pip
-#RUN pip install -r requirements.txt
-#RUN python manage.py collectstatic --noinput
 
 USER team_shop_user
