@@ -38,7 +38,7 @@ services:
       - django
     build: nginx
     volumes:
-      - .:/team_shop
+      - django_volume:/team_shop
       - nginx_log_volume:/var/log/nginx
       - nginx_conf_volume:/etc/nginx/conf.d/
 
@@ -50,6 +50,7 @@ services:
 
 
 volumes:
+  django_volume:
   postgres_volume:
   nginx_log_volume:
   nginx_conf_volume:
