@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+user team_shop_user
+
 pip install -r requirements.txt
 python manage.py collectstatic --noinput
 
