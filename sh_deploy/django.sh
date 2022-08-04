@@ -1,6 +1,8 @@
 #!/bin/bash -x
 
-pip install virtualenv
+pip install --upgrade pip
+sudo -H pip install virtualenv
+
 virtualenv team_shop_env
 source team_shop_env/bin/activate
 
