@@ -1,7 +1,12 @@
 #!/bin/bash -x
 
-user team_shop_user
+pip install virtualenv
+virtualenv team_shop_env
+source team_shop_env/bin/activate
 
+su -c team_shop_user
+
+pip install --upgrade pip
 pip install -r requirements.txt
 python manage.py collectstatic --noinput
 
