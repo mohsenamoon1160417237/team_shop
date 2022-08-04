@@ -19,7 +19,7 @@ ADD sh_deploy/django.sh /django.sh
 RUN chmod +x /django.sh
 
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN python manage.py collectstatic --noinput
+#RUN pip install -r requirements.txt
+#RUN python manage.py collectstatic --noinput
 
 USER team_shop_user
