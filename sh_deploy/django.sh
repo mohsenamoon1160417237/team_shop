@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+export PATH="/home/team_shop_user/.local/bin:$PATH"
+
 pip install -r requirements.txt
 
 python manage.py collectstatic --noinput
