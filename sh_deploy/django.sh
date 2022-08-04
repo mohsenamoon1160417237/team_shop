@@ -5,7 +5,7 @@ pip install --upgrade pip
 virtualenv team_shop_env
 source team_shop_env/bin/activate
 
-su -c team_shop_user
+#su -c team_shop_user
 
 pip install --upgrade pip
 pip install -r requirements.txt

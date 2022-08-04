@@ -33,7 +33,7 @@ DEBUG = False
 
 lstCors = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [s.strip() for s in v.split(",")])
 
-ALLOWED_HOSTS = lstCors
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
