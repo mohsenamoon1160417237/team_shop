@@ -28,7 +28,7 @@ services:
     ports:
       - 8282:8282
     volumes:
-      - .:/team_shop
+      - django_volume:/team_shop
     container_name: teamShop_api
     restart: always
 

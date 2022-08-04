@@ -8,6 +8,7 @@ ENV APIDIR=/team_shop
 RUN mkdir $APIDIR/media
 
 WORKDIR $APIDIR
+COPY . $APIDIR/
 
 RUN groupadd -g 998 docker
 RUN useradd team_shop_user -u 1000 -g 998 -m -s /bin/bash
@@ -18,5 +19,7 @@ ADD sh_deploy/django.sh /django.sh
 RUN chmod +x /django.sh
 
 RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+RUN python manage.py collectstatic --noinput
 
 USER team_shop_user
