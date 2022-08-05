@@ -28,9 +28,5 @@ class DefineProduct(GeneralModel):
         default=0
     )
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title, allow_unicode=True)
-        super(DefineProduct, self).save()
-
     def __str__(self):
         return f"{self.title} - {self.cat}"

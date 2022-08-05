@@ -18,9 +18,5 @@ class ProductTag(GeneralModel):
         related_name='tag'
     )
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name, allow_unicode=True)
-        super(ProductTag, self).save()
-
     def __str__(self):
         return f'{self.name}'

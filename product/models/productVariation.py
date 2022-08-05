@@ -27,9 +27,5 @@ class ProductVariation(GeneralModel):
     class Meta:
         unique_together = [("product", "title")]
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title, allow_unicode=True)
-        super(ProductVariation, self).save()
-
     def __str__(self):
         return f'{self.product} - {self.title} - {self.sale_price}'

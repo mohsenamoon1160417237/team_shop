@@ -28,9 +28,5 @@ class ProductCategory(GeneralModel):
     class Meta:
         verbose_name_plural = "Product categories"
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title, allow_unicode=True)
-        super(ProductCategory, self).save()
-
     def __str__(self):
         return f"{self.title}"

@@ -10,9 +10,5 @@ class Brand(GeneralModel):
     slug = models.SlugField(max_length=300,
                             blank=True)
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name, allow_unicode=True)
-        super(Brand, self).save()
-
     def __str__(self):
         return f"{self.name}"
