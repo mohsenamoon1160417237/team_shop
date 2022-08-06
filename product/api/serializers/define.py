@@ -4,11 +4,17 @@ from product.models import (
     DefineProduct,
     ProductAttr
 )
-from gallery_image.models import GalleryImage
+from gallery_image.models import (
+    GalleryImage,
+    ImageItem
+)
 from product_tag.models import ProductTag
 
 from product_category.api.serializers import ProdCategoryShortSerializer
-from gallery_image.api.serializers import ProdGalImageSerializer
+from gallery_image.api.serializers import (
+    ProdGalImageSerializer,
+    ImageItemSerializer
+)
 from product_tag.api.serializers import ProductTagSerializer
 from .attr import ProdAttrSerializer
 from .variation import ProductVariationSerializer
@@ -52,7 +58,11 @@ class DefineProductSerializer(serializers.ModelSerializer):
         return sz.data
 
     def get_image(self, obj):
-        return None
+        images = ImageItem.objects.filter(product=obj, img_type=ImageItem.CUSTOM)
+        if not images.exists():
+            return None
+        sz = ImageItemSerializer(images.first())
+        return sz.data
 
 
 class DefineProductFlashSerializer(DefineProductSerializer):

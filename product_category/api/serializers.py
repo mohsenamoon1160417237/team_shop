@@ -43,7 +43,5 @@ class ProdCategorySerializer(ProdCategoryShortSerializer):
         imgs = ImageItem.objects.filter(category=obj, img_type=ImageItem.CUSTOM)
         if not imgs.exists():
             return None
-
-        img = imgs.first()
-        sz = ImageItemSerializer(img)
+        sz = ImageItemSerializer(imgs.first())
         return sz.data
