@@ -33,6 +33,7 @@ class DefineProductSerializer(serializers.ModelSerializer):
                   "name",
                   "slug",
                   "description",
+                  "image",
                   "gallery",
                   "variations",
                   "created_at",
