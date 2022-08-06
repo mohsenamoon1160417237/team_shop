@@ -23,7 +23,7 @@ from .variation import ProductVariationSerializer
 class DefineProductSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
     description = serializers.SerializerMethodField()
-    image = serializers.SerializerMethodField
+    image = serializers.SerializerMethodField()
     gallery = serializers.SerializerMethodField()
     variations = serializers.SerializerMethodField()
 
